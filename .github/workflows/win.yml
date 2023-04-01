@@ -27,12 +27,6 @@ jobs:
       with:
         msbuild-architecture: ${{ matrix.arch }}
 
-    - name: check dir
-      run: |
-        tree
-        dir build/
-        dir build/Release/
-
     - name: collect staging built files
       run: mv build/Release/atsplugin.dll atsplugin_${{ matrix.arch }}.dll
 
