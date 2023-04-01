@@ -13,7 +13,20 @@ jobs:
     - name: build
       run: ./Build.bat
       
-    - name: dir
+    - name: check dir
+      run: |
+        tree
+        dir build/
+        
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
+      
+    - name: msbuild
+      run: |
+        cd build
+        msbuild atsplugin.sln
+      
+    - name: check dir
       run: |
         tree
         dir build/
