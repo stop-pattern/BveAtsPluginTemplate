@@ -24,7 +24,7 @@ jobs:
     - name: msbuild
       run: |
         cd build
-        msbuild atsplugin.sln /p:Configuration=Release;Platform=x86
+        msbuild atsplugin.sln /p:Configuration=Release;/p:PlatformTarget=x86
       
     - name: check dir
       run: |
