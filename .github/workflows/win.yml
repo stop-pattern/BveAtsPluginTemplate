@@ -29,14 +29,14 @@ jobs:
     - name: msbuild
       run: |
         cd build
-        msbuild atsplugin.sln /p:Configuration=Release;/m:2;/v:diag
+        msbuild atsplugin.sln /p:Configuration=Release;/v:diag
       
     - name: check dir
       run: |
         tree
         dir build/
         dir build/Release/
-        dir build/x64/
+        dir build/${{ matrix.arch }}/
       
     - uses: actions/upload-artifact@v3
       with:
