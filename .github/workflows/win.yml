@@ -29,8 +29,9 @@ jobs:
     - name: msbuild
       run: |
         cd build
-        msbuild atsplugin.sln -p:Configuration=Release -m -t:${{ matrix.arch }}.
+        msbuild atsplugin.sln -p:Configuration=Release -m
       
+
     - name: check dir
       run: |
         tree
