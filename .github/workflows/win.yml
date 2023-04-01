@@ -24,12 +24,14 @@ jobs:
     - name: msbuild
       run: |
         cd build
-        msbuild atsplugin.sln
+        msbuild atsplugin.sln /p:Configuration=Release;Platform="x86"
       
     - name: check dir
       run: |
         tree
         dir build/
+        dir build/Release/
+        dir build/x86/
       
     - uses: actions/upload-artifact@v3
       with:
