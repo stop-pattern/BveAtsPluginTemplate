@@ -10,13 +10,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: build
-      run: |
-        mkdir build
-        cd build
-        cmake ..
-        make
+      run: ./Build.sh
     - name: dir
-      run: ls -al
+      run: ls -alR
     - uses: actions/upload-artifact@v3
       with:
         name: my-artifact
