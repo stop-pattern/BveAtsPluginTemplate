@@ -25,13 +25,7 @@ jobs:
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.1
       with:
-        msbuild-architecture: x86
-      
-    - name: msbuild
-      run: |
-        cd build
-        msbuild atsplugin.sln -p:Platform=${{ matrix.arch }} -m
-      
+        msbuild-architecture: ${{ matrix.arch }}
 
     - name: check dir
       run: |
@@ -46,4 +40,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: built
-        path: atsplugin_${{ matrix.arch }}.dll
+        path: build/*
