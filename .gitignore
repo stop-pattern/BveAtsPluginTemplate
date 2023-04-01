@@ -1,6 +1,7 @@
-*.*
+﻿*.*
+!.gitattributes
 !/.gitignore
 !/src/*
-!/CMakelists.txt
-!/README.MD
+!/CMakeLists.txt
+!/README.md
 !/Build.*
