@@ -14,7 +14,7 @@ jobs:
       run: ./Build.bat
       
     - name: dir
-      run: dir
+      run: tree
       
     - uses: actions/upload-artifact@v3
       with:
