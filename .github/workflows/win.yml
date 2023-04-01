@@ -29,7 +29,7 @@ jobs:
     - name: msbuild
       run: |
         cd build
-        msbuild atsplugin.sln /p:Configuration=Release;/v:diag
+        msbuild atsplugin.sln /p:Configuration=Release;/m;/v:diag
       
     - name: check dir
       run: |
