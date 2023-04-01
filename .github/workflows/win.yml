@@ -1,4 +1,4 @@
-name: CI
+name: windows-build
 
 on: [push]
 
@@ -14,7 +14,9 @@ jobs:
       run: ./Build.bat
       
     - name: dir
-      run: tree
+      run: |
+        tree
+        dir build/
       
     - uses: actions/upload-artifact@v3
       with:
