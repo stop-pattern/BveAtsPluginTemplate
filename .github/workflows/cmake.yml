@@ -8,6 +8,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v3
     - name: build
-      run: Build.sh
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        make
+    - name: dir
+      run: ls -al
+    - uses: actions/upload-artifact@v3
+      with:
+        name: my-artifact
+        path: ./*
