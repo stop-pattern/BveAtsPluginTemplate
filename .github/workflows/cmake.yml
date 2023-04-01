@@ -9,10 +9,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    
     - name: build
-      run: ./Build.sh
+      run: |
+        chmod 777 Build.sh
+        ./Build.sh
+      
     - name: dir
       run: ls -alR
+      
     - uses: actions/upload-artifact@v3
       with:
         name: my-artifact
