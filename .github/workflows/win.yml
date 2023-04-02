@@ -20,15 +20,31 @@ jobs:
       run: |
         tree
         dir build/
-        type build/atsplugin.vcxproj
+        
+    - name: type vcxproj
+      run: type build/atsplugin.vcxproj
         
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.1
       with:
-        msbuild-architecture: ${{ matrix.arch }}
+        msbuild-architecture: x86
+      
+    - name: msbuild
+      run: |
+        cd build
+        msbuild atsplugin.sln -p:Platform="${{ matrix.arch }}" -m
+      
+    - name: check dir
+      run: |
+        tree
+        dir build/
+        dir build/Release/
+
+    - name: collect staging built files
+      run: mv build/Release/atsplugin.dll atsplugin_${{ matrix.arch }}.dll
 
     - name: upload built files
       uses: actions/upload-artifact@v3
       with:
         name: built
-        path: build/*
+        path: atsplugin_${{ matrix.arch }}.dll
