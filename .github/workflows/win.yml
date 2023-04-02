@@ -32,7 +32,7 @@ jobs:
     - name: msbuild
       run: |
         cd build
-        msbuild atsplugin.sln -p:Platform="${{ matrix.arch }}" -m
+        msbuild atsplugin.sln -p:Platform="${{ matrix.arch }}" -p:Configuration=Release -m
       
     - name: check dir
       run: |
